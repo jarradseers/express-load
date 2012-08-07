@@ -17,31 +17,35 @@ A script at ./controllers/user.js becomes available as app.controllers.user or r
 
 ### Multiple Directories
 
-	require('express-load')([
-		'./models',
-		'./controllers',
-		'./routes'
-	], app);
+```js
+require('express-load')([
+	'./models',
+	'./controllers',
+	'./routes'
+], app);
+```
 
 ### Single Directory
 
-	require('express-load')('./routes', app);
-
+```js
+require('express-load')('./routes', app);
+```
 The first parameter can be an array of directories or a string. The second parameter must be the Express application instance.
 
 ## Example
 
 ### app.js
 
-	var express = require('express')
-	  , load = require('express-load');
+```js
+var express = require('express')
+  , load = require('express-load');
 
-	var app = express();
+var app = express();
 
-	load(['./controllers', './routes'], app);
+load(['./controllers', './routes'], app);
 
-	app.listen(3000)
-
+app.listen(3000)
+```
 If there were the following files in the controllers folder:
 
 _user.js_
