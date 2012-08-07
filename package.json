@@ -1,0 +1,16 @@
+{
+  "name": "express-load",
+  "description": "Load files in a directory with the Express application instance",
+  "version": "0.0.1",
+  "author": {
+    "name": "Jarrad Seers",
+    "email": "jarrad@jarradseers.com"
+  },
+  "contributors": [
+    {
+      "name": "Jarrad Seers",
+      "email": "jarrad@jarradseers.com"
+    }
+  ],
+  "main": "index"
+}
