@@ -1,5 +1,5 @@
 var express = require('express');
-var load = require('express-load');
+var load = require('../../');
 
 var app = express();
 

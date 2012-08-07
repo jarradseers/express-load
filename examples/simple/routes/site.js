@@ -13,7 +13,7 @@ module.exports = function(app) {
 
 	app.get('/',
 		user.isAuthenticated,
-		site.controllers.index
+		site.index
 	);
 
 };
