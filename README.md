@@ -1,7 +1,13 @@
 
 # Express Load
 
-The _express-load_ module provides the ability to load scripts from a specified directory. This is especially useful for large express MVC applications.
+The _express-load_ module provides the ability to load scripts into an Express instance from a specified directory. Make large express MVC applications easier to develop by allowing a logical file separation without having to include a bunch of files, see the examples folder for information.
+
+Despite being a very simple module, it is extremely useful. It can be used to autoload models, routes, schemas, configs, controllers, object maps... etc...
+
+_express-load_ gives you access to the autoloaded files in the Express application instance to keep out of the global namespace. This also allows access to the scripts via the request object.
+
+A script at ./controllers/user.js becomes available as app.controllers.user or req.app.controllers.user in a request.
 
 ## Installation
 
@@ -9,11 +15,52 @@ The _express-load_ module provides the ability to load scripts from a specified 
 
 ## Usage
 
-	var load = require('express-load');
+### Multiple Directories
 
-	load(['./models', './controllers', './routes'], app);
+	require('express-load')([
+		'./models',
+		'./controllers',
+		'./routes'
+	], app);
 
-Note that _app_ is the express instance, examples can be found in the examples folder.
+### Single Directory
+
+	require('express-load')('./routes', app);
+
+The first parameter can be an array of directories or a string. The second parameter must be the Express application instance.
+
+## Example
+
+### app.js
+
+	var express = require('express')
+	  , load = require('express-load');
+
+	var app = express();
+
+	load(['./controllers', './routes'], app);
+
+	app.listen(3000)
+
+If there were the following files in the controllers folder:
+
+_user.js_
+_post.js_
+_comment.js_
+
+They would then be available as:
+	app.controllers.user
+	app.controllers.post
+	app.controllers.comment
+
+Or from within a request as:
+	req.app.controllers.user
+	req.app.controllers.post
+	req.app.controllers.comment
+
+The directories are read synchronously, this is only done once when the app starts allowing the directories listed to have the scripts loaded in the order specified, for example you will want to load the controllers before the routes.
+
+More examples will be available in the _examples_ folder.
 
 # License 
 
