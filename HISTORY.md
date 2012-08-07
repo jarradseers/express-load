@@ -4,6 +4,7 @@
 
 	* Ignore directories
 	* Fixed simple example
+	* Updated package.json
 
 0.0.2 / 2012-08-07
 ==================

@@ -1,6 +1,6 @@
 {
   "name": "express-load",
-  "description": "Load files in a directory with the Express application instance",
+  "description": "Autoload modules into an Express application instance",
   "version": "0.0.3",
   "author": {
     "name": "Jarrad Seers",
