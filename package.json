@@ -1,7 +1,7 @@
 {
   "name": "express-load",
   "description": "Load files in a directory with the Express application instance",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Jarrad Seers",
     "email": "jarrad@jarradseers.com"
@@ -20,7 +20,7 @@
     "autoload"
   ],
   "devDependencies": {
-     "express": "2.4.4"
+     "express": "3.0.0"
   },
   "engines": { "node": ">= 0.2.0" }
 }
