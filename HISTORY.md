@@ -1,4 +1,13 @@
 
+0.0.4 / 2012-08-09
+==================
+
+	* Added autoConfigure feature
+	* Cleaned up indentation and comments
+	* Improved configuration example
+	* Updated package.json
+	* Updated Readme
+
 0.0.3 / 2012-08-08
 ==================
 

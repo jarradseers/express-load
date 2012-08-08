@@ -7,7 +7,7 @@ Despite being a very simple module, it is extremely useful. It can be used to au
 
 _express-load_ gives you access to the autoloaded files in the Express application instance to keep out of the global namespace. This also allows access to the scripts via the request object.
 
-A script at ./controllers/user.js becomes available as app.controllers.user or req.app.controllers.user in a request.
+A script at controllers/user.js becomes available as app.controllers.user or req.app.controllers.user in a request.
 
 ## Installation
 
@@ -19,20 +19,42 @@ A script at ./controllers/user.js becomes available as app.controllers.user or r
 
 ```js
 require('express-load')([
-	'./models',
-	'./controllers',
-	'./routes'
+	'models',
+	'controllers',
+	'routes'
 ], app);
 ```
 
 ### Single Directory
 
 ```js
-require('express-load')('./routes', app);
+require('express-load')('routes', app);
 ```
 The first parameter can be an array of directories or a string. The second parameter must be the Express application instance.
 
-## Example
+### Autoload Configuration
+
+The `autoConfigure` feature loads and configures multiple environment configurations in Express.
+
+```js
+var load = require('express-load');
+
+load('config', app)
+  .autoConfigure(app.config);
+```
+
+This will now use the Express `app.configure()` function to load each environment configuration using `app.set()`. Once this is called the configuration options in the current environment are available in `app.get()` or `app.settings`. See the _configuration_ example in the _examples_ folder.
+
+The `app.config` is passed in as a parameter which is the newly available configuration environments, this is required in instances when you may load more the just config:
+
+```js
+load(['config', 'models', 'routes', 'controllers'], app)
+  .autoConfigure(app.config);
+```
+
+Remember that if you name your configuration file something else, for example _configuration_ the environments will then be available at `app.configuration`.
+
+## Simple Express Load Example
 
 ### app.js
 
@@ -42,15 +64,15 @@ var express = require('express')
 
 var app = express();
 
-load(['./controllers', './routes'], app);
+load(['controllers', 'routes'], app);
 
 app.listen(3000)
 ```
 If there were the following files in the controllers folder:
 
-_user.js_
-_post.js_
-_comment.js_
+	user.js
+	post.js
+	comment.js
 
 They would then be available as:
 	app.controllers.user

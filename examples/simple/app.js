@@ -1,9 +1,32 @@
+/*!
+ *  Example simple autoloader.
+ *
+ *  @author Jarrad Seers <jarrad@jarradseers.com>
+ *  @created 07/08/2012 NZST
+ */
+
+/**
+ *  Module dependencies.
+ */
+
 var express = require('express');
-var load = require('../../');
+  , load = require('../../');
+
+/**
+ *  Express v3 application instance
+ */
 
 var app = express();
 
-load(['./controllers', './routes'], app);
+/**
+ *  Load multiple directories.
+ */
+
+load(['controllers', 'routes'], app);
+
+/**
+ *  Listen on 3000.
+ */
 
 app.listen(3000);
 console.log('express-load app listening on 3000');

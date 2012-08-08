@@ -1,7 +1,7 @@
 {
   "name": "express-load",
   "description": "Autoload modules into an Express application instance",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Jarrad Seers",
     "email": "jarrad@jarradseers.com"
@@ -17,7 +17,9 @@
     "express",
     "express-load",
     "mvc",
-    "autoload"
+    "autoload",
+    "auto-configure",
+    "configuration"
   ],
   "devDependencies": {
      "express": "3.0.0"
