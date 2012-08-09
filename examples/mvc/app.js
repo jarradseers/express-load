@@ -1,5 +1,5 @@
 /*!
- *  Example configuration autoloader.
+ *  Example simple autoloader.
  *
  *  @author Jarrad Seers <jarrad@jarradseers.com>
  *  @created 09/08/2012 NZST
@@ -13,28 +13,33 @@ var express = require('express')
   , load = require('../../');
 
 /**
- *  Create Express 3 app.
+ *  Express v3 application instance
  */
 
 var app = express();
 
 /**
- *  Load configuration into app instance.
+ *  Autoload Configuration.
  */
 
-load('configs').into(app);
+load('config').into(app);
 
-/**
- *  Configure for each environment.
- */
-
-for (var environment in app.configs) {
+for (var environment in app.config) {
   app.configure(environment, function() {
-    for (var key in app.configs[environment]) {
-      app.set(key, app.configs[environment][key]);
+    for (var key in app.config[environment]) {
+      app.set(key, app.config[environment][key]);
     }
   });
 }
+
+/**
+ *  Autoload models, controllers and routes into application instance.
+ */
+
+load('models')
+  .then('controllers')
+  .then('routes')
+  .into(app);
 
 /**
  *  Listen on the configured port.

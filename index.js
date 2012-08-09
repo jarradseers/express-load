@@ -1,5 +1,5 @@
 /*!
- *  ExpressLoad Stub
+ *  ExpressLoad Stub.
  *
  *  @author Jarrad Seers <jarrad@jarradseers.com>
  *  @created 07/08/2012

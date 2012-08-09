@@ -1,4 +1,13 @@
 
+1.0.0 / 2012-08-09
+==================
+
+	* Major re-write, now allows chaining
+	* Improved examples
+	* Added MVC example
+	* Updated package.json
+	* Updated Readme
+
 0.0.4 / 2012-08-09
 ==================
 

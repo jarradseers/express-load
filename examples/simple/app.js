@@ -19,10 +19,12 @@ var express = require('express')
 var app = express();
 
 /**
- *  Load multiple directories.
+ *  Autoload.
  */
 
-load(['controllers', 'routes'], app);
+load('controllers')
+  .then('routes')
+  .into(app);
 
 /**
  *  Listen on 3000.

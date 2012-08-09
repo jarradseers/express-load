@@ -1,13 +1,16 @@
 
 # Express Load
 
-The _express-load_ module provides the ability to load scripts into an Express instance from a specified directory. Make large express MVC applications easier to develop by allowing a logical file separation without having to include a bunch of files, see the examples folder for information.
+The _express-load_ module provides the ability to load scripts into an Express instance from specified directories or files. 
+Make large express MVC applications easier to develop by allowing a logical file separation without having to require your scripts. 
+See the examples folder for information.
 
-Despite being a very simple module, it is extremely useful. It can be used to autoload models, routes, schemas, configs, controllers, object maps... etc...
+Express Load can be used to autoload models, routes, schemas, configs, controllers, object maps... etc...
 
-_express-load_ gives you access to the autoloaded files in the Express application instance to keep out of the global namespace. This also allows access to the scripts via the request object.
+You get access to the autoloaded files in the Express application instance to keep out of the global namespace. 
+This also allows access to the scripts via the request object. `req.app`
 
-A script at controllers/user.js becomes available as app.controllers.user or req.app.controllers.user in a request.
+A script at `controllers/user.js` becomes available as `app.controllers.user` or `req.app.controllers.user` in a request.
 
 ## Installation
 
@@ -15,46 +18,37 @@ A script at controllers/user.js becomes available as app.controllers.user or req
 
 ## Usage
 
-### Multiple Directories
-
-```js
-require('express-load')([
-	'models',
-	'controllers',
-	'routes'
-], app);
-```
-
-### Single Directory
-
-```js
-require('express-load')('routes', app);
-```
-The first parameter can be an array of directories or a string. The second parameter must be the Express application instance.
-
-### Autoload Configuration
-
-The `autoConfigure` feature loads and configures multiple environment configurations in Express.
-
 ```js
 var load = require('express-load');
 
-load('config', app)
-  .autoConfigure(app.config);
+load('config')
+  .then('routes')
+  .into(app);
 ```
-
-This will now use the Express `app.configure()` function to load each environment configuration using `app.set()`. Once this is called the configuration options in the current environment are available in `app.get()` or `app.settings`. See the _configuration_ example in the _examples_ folder.
-
-The `app.config` is passed in as a parameter which is the newly available configuration environments, this is required in instances when you may load more the just config:
-
-```js
-load(['config', 'models', 'routes', 'controllers'], app)
-  .autoConfigure(app.config);
-```
-
-Remember that if you name your configuration file something else, for example _configuration_ the environments will then be available at `app.configuration`.
 
 ## Simple Express Load Example
+
+### controllers/site.js
+
+```js
+exports.index = function(req, res, next) {
+  res.send('Hello world!');
+};
+```
+
+### routes/site.js
+
+```js
+module.exports = function(app) {
+
+  var site = app.controllers.site;
+  
+  app.get('/',
+    site.index
+  );
+
+};
+```
 
 ### app.js
 
@@ -64,29 +58,90 @@ var express = require('express')
 
 var app = express();
 
-load(['controllers', 'routes'], app);
+load('controllers')
+  .then('routes')
+  .into(app);
 
 app.listen(3000)
 ```
-If there were the following files in the controllers folder:
 
-	user.js
-	post.js
-	comment.js
+## Load Order
 
-They would then be available as:
-	app.controllers.user
-	app.controllers.post
-	app.controllers.comment
+The basic load order is the order that is specified in code, for example, you will want to load models before controllers and controllers before routes:
 
-Or from within a request as:
-	req.app.controllers.user
-	req.app.controllers.post
-	req.app.controllers.comment
+```js
+load('models')
+  .then('controllers')
+  .then('routes')
+  .into(app);
+```
 
-The directories are read synchronously, this is only done once when the app starts allowing the directories listed to have the scripts loaded in the order specified, for example you will want to load the controllers before the routes.
+This would simply load all models, all controllers, all routes in that order (alphabetical order within the directories).
 
-More examples will be available in the _examples_ folder.
+### Specifying Complex Order
+
+If you have two files in the foo folder _a.js_ and _z.js_ and you need _z.js_ loaded BEFORE _a.js_ you would simply do the following:
+
+```js
+load('foo/z.js').then('foo').into(app);
+```
+
+_express-load_ will recognise the order and will not add it again later down the chain.
+
+## Files and folders
+
+_express-load_ will ignore hidden files and folders (by leading period) unless you explicitly define them to be loaded.
+
+### Nested Folders
+
+If you had nested folders like the following example: 
+
+	models
+		humans
+			cool.js
+			not.js
+		animals
+			dog.js
+			cat.js
+
+You would end up with the scripts being available in the following structure:
+
+```js
+app.models.humans.cool
+app.models.humans.not
+app.models.animals.dog
+app.models.animals.cat
+```
+
+### Getting the Express Application instance
+
+This can be done in one of two ways:
+
+#### In a script that is auto-loaded...
+
+```js
+module.exports = function(app) {
+  console.log(app);
+};
+```
+
+A script will only be loaded with a reference to the application instance as it's parameter if module.exports is a function.
+
+#### From a request object...
+
+```js
+app.get('/', function(req, res, next) {
+  console.log(req.app);
+});
+```
+
+### File and Folder names vs Object namespace examples
+
+The names of files and folders are used to create the namespace therefore rules have been put in place. dashes `-` and periods `.` are removed and the following character is uppercased. For example:
+
+	some-controllers/my.controller.js -> *.someControllers.myController
+
+Please see the examples folder for working examples of _express-load_ in action.
 
 # License 
 
