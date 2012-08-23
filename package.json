@@ -22,7 +22,7 @@
     "configuration"
   ],
   "devDependencies": {
-     "express": "3.0.0"
+     "express": "3.x"
   },
   "engines": { "node": ">= 0.2.0" }
 }
