@@ -13,16 +13,16 @@ var express = require('express')
   , load = require('../../');
 
 /**
- *  Express v3 application instance
+ *  Express v3 application instance.
  */
 
 var app = express();
 
 /**
- *  Autoload.
+ *  Autoload with verbose option.
  */
 
-load('controllers')
+load('controllers', {verbose: true})
   .then('routes')
   .into(app);
 

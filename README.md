@@ -88,6 +88,16 @@ load('foo/z.js').then('foo').into(app);
 
 _express-load_ will recognise the order and will not add it again later down the chain.
 
+## Logging
+
+Logging is off by default but can be enabled in the following way:
+
+```js
+load('controllers', {verbose:true}).into(app);
+```
+
+See the verbose example in the examples folder.
+
 ## Files and folders
 
 _express-load_ will ignore hidden files and folders (by leading period) unless you explicitly define them to be loaded.
