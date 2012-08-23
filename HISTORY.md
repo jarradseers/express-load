@@ -3,6 +3,7 @@
 
 	* Updated Exress dev dependencies
 	* Added verbose option, logging is off by default
+	* Updated Readme
 
 1.0.0 / 2012-08-09
 ==================
