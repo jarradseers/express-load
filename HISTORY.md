@@ -1,3 +1,9 @@
+1.1.1 / 2012-09-15
+==================
+
+	* Fixed logging
+	* Fixed recursive hidden directories
+
 1.1.0 / 2012-08-23
 ==================
 
