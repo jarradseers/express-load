@@ -8,6 +8,7 @@
   },
   "contributors": [
     {"name": "Jarrad Seers", "email": "jarrad@jarradseers.com"},
+	{"name": "Alex Koller", "email": "alex@webmolecule.co.za"},
     {"name": "Fabien Franzen", "email": "info@atelierfabien.be"}
   ],
   "main": "index",
