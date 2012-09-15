@@ -1,16 +1,14 @@
 {
   "name": "express-load",
   "description": "Autoload modules into an Express application instance, config, models, routes, controllers etc...",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": {
     "name": "Jarrad Seers",
     "email": "jarrad@jarradseers.com"
   },
   "contributors": [
-    {
-      "name": "Jarrad Seers",
-      "email": "jarrad@jarradseers.com"
-    }
+    {"name": "Jarrad Seers", "email": "jarrad@jarradseers.com"},
+    {"name": "Fabien Franzen", "email": "info@atelierfabien.be"}
   ],
   "main": "index",
   "keywords": [
@@ -24,5 +22,5 @@
   "devDependencies": {
      "express": "3.x"
   },
-  "engines": { "node": ">= 0.2.0" }
+  "engines": { "node": "*" }
 }

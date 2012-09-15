@@ -135,7 +135,11 @@ module.exports = function(app) {
 };
 ```
 
-A script will only be loaded with a reference to the application instance as it's parameter if module.exports is a function.
+A script will only be loaded with parameters if module.exports is a function. Multiple parameters can be passed to the script in the `into` method, for example:
+
+```js
+load('controllers').into(app, parameter, another);
+```
 
 #### From a request object...
 

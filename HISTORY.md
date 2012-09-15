@@ -1,8 +1,16 @@
+1.1.2 / 2012-09-16
+==================
+
+	* Allow multiple parameters for into method
+	* Updated Readme
+	* Updated package.json
+
 1.1.1 / 2012-09-15
 ==================
 
 	* Fixed logging
 	* Fixed recursive hidden directories
+	* Updated package.json
 
 1.1.0 / 2012-08-23
 ==================
@@ -10,6 +18,7 @@
 	* Updated Exress dev dependencies
 	* Added verbose option, logging is off by default
 	* Updated Readme
+	* Updated package.json
 
 1.0.0 / 2012-08-09
 ==================
