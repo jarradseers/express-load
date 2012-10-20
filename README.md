@@ -102,10 +102,10 @@ See the verbose example in the examples folder.
 
 _express-load_ will ignore hidden files and folders (by leading period) unless you explicitly define them to be loaded.
 
-_express-load_ will only load files ending with .js extension unless you explicitly define all files to be loaded (by setting checkext option to false) :
+_express-load_ will by default only load files ending with .js or .node extensions, unless you set checkext option to false : no file extension check at all. You can also change the list of allowed extension (in extlist option).
 
 ```js
-load('controllers', {checkext:false}).into(app);
+load('controllers', {checkext:true, extlist:['.js','.myextension']}).into(app);
 ```
 
 ### Nested Folders
