@@ -1,7 +1,5 @@
 module.exports = function(app) {
   
-  console.log(app.models);
-  
   // Dummy db.
   var users = [
     {name: 'Jarrad Seers', email: 'jarrad@jarradseers.com'},

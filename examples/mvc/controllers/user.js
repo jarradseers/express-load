@@ -1,11 +1,7 @@
-module.exports = function(app) {
-
-  this.isAuthenticated = function(req, res, next) {
-    if (true) {
-      next();
-    } else {
-      res.send('Not authenticated');
-    }
-  };
-
+exports.isAuthenticated = function() {
+  if (true) {
+    next();
+  } else {
+    res.send('Not authenticated');
+  }
 };
