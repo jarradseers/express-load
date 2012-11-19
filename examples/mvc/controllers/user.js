@@ -1,4 +1,4 @@
-exports.isAuthenticated = function() {
+exports.isAuthenticated = function(req, res, next) {
   if (true) {
     next();
   } else {
