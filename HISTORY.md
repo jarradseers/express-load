@@ -1,3 +1,9 @@
+1.1.7 / 2013-02-02
+==================
+
+	* External logger support
+	* Updated package.json
+
 1.1.2 / 2012-09-16
 ==================
 
