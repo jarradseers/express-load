@@ -25,5 +25,6 @@
   "devDependencies": {
      "express": "3.x"
   },
-  "engines": { "node": "*" }
+  "engines": { "node": "*" },
+  "repository": "git://github.com/jarradseers/express-load"
 }
