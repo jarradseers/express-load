@@ -25,15 +25,11 @@ var app = express();
 load('configs').into(app);
 
 /**
- *  Configure for each environment.
+ *  Configure for environment.
  */
 
-for (var environment in app.configs) {
-  app.configure(environment, function() {
-    for (var key in app.configs[environment]) {
-      app.set(key, app.configs[environment][key]);
-    }
-  });
+for (var config in app.configs[app.get('env')]) {
+  app.set(config, app.configs[app.get('env')][config]);
 }
 
 /**
