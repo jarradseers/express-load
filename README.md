@@ -88,6 +88,22 @@ load('foo/z.js').then('foo').into(app);
 
 _express-load_ will recognise the order and will not add it again later down the chain.
 
+### Async load
+
+If you have an async script to load, _express-load_ will pass a `callback` function to your script and wait this function be called to load remain scripts.
+
+```js
+load('syncFoo.js').then('asyncBar.js').then('syncBar.js');
+
+// asyncBar.js
+module.exports = function (app, callback) {
+    setTimeout(function () {
+        console.log('After 5 seconds');
+        callback();
+    }, 5000);
+};
+```
+
 ## Logging
 
 Logging is off by default but can be enabled in the following way:
