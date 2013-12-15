@@ -104,6 +104,18 @@ module.exports = function (app, callback) {
 };
 ```
 
+If you need to know when async load is complete, you may pass the callback function as a second argument to ```into```. The callback get called when async load is completed.
+
+```js
+load('models')
+    .then('collections')
+    .then('controllers')
+    .into(app, function(err, instance) {
+        if(err) throw err;
+        app.listen(app.get('port'));
+    });
+```
+
 ## Logging
 
 Logging is off by default but can be enabled in the following way:
