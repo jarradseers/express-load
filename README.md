@@ -116,6 +116,31 @@ load('models')
     });
 ```
 
+### Working directory
+
+By default express-load does search from current working directory (see ```process.cwd```).
+The working directory might be changed prior to call any methods by calling ```process.chdir```.
+But in some cases that is not feasible (asyncronous loading, possible interference with others modules),
+or desired (multiple layers which should stack on each others).
+For those cases there is method ```from``` which allows specify directory to load from without using ```process.chdir```.
+
+Basic example:
+```js
+var path = require('path');
+load
+    .from(path.resolve(path.join(__dirname, 'library')))
+        .load('models')
+        .load('controllers')
+        .load('routes')
+    .from(path.resolve(path.join(__dirname, 'application')))
+        .load('models')
+        .load('controllers')
+        .load('routes')
+    .into(app);
+```
+
+Additionally see examples/async.
+
 ## Logging
 
 Logging is off by default but can be enabled in the following way:
