@@ -5,4 +5,4 @@
  *  @created 07/08/2012
  */
 
-module.exports = require('./lib/express-loading.js');
+module.exports = require('./lib/express-load.js');
