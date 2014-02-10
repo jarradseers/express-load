@@ -157,6 +157,10 @@ app.models.animals.dog
 app.models.animals.cat
 ```
 
+### Base directory
+
+Express-load load scripts based on relative directory, however you can use `cwd` option if you want to load based on the other directory. see [example](https://github.com/jarradseers/express-load/tree/master/examples/cwd). 
+
 ### Getting the Express Application instance
 
 This can be done in one of two ways:
