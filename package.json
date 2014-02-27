@@ -25,8 +25,7 @@
     "configuration"
   ],
   "dependencies": {
-    "async": "0.2.9",
-    "lodash": "latest"
+    "async": "0.2.9"
   },
   "devDependencies": {
      "express": "3.x"
