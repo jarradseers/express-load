@@ -25,11 +25,11 @@ var app = express();
 load('config').into(app);
 
 for (var environment in app.config) {
-  app.configure(environment, function() {
+  if (environment == app.get('env')) {
     for (var key in app.config[environment]) {
       app.set(key, app.config[environment][key]);
     }
-  });
+  }
 }
 
 /**
