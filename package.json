@@ -1,7 +1,7 @@
 {
   "name": "express-load",
   "description": "Autoload modules into an Express application instance, config, models, routes, controllers etc...",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "author": {
     "name": "Jarrad Seers",
     "email": "jarrad@jarradseers.com"
@@ -12,7 +12,8 @@
     {"name": "Fabien Franzen", "email": "info@atelierfabien.be"},
     {"name": "Jean-Matthieu Barbier", "email": "jm.barbier+github@solidev.net"},
     {"name": "perfectworks", "email": "perfectworks@gmail.com"},
-    {"name": "popomore", "email": "sakura9515@gmail.com"}
+    {"name": "popomore", "email": "sakura9515@gmail.com"},
+    {"name": "vkadam", "email": "vishal.4kadam@gmail.com"}
   ],
   "main": "index",
   "keywords": [
