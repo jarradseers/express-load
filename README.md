@@ -1,5 +1,3 @@
-[![Gittip](http://img.shields.io/gittip/jarradseers.png)](https://www.gittip.com/jarradseers/)
-
 # Express Load
 
 The _express-load_ module provides the ability to load scripts into an Express instance from specified directories or files. 
