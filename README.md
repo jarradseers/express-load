@@ -1,12 +1,12 @@
 # Express Load
 
-The _express-load_ module provides the ability to load scripts into an Express instance from specified directories or files. 
-Make large express MVC applications easier to develop by allowing a logical file separation without having to require your scripts. 
+The _express-load_ module provides the ability to load scripts into an Express instance from specified directories or files.
+Make large express MVC applications easier to develop by allowing a logical file separation without having to require your scripts.
 See the examples folder for information.
 
 Express Load can be used to autoload models, routes, schemas, configs, controllers, object maps... etc...
 
-You get access to the autoloaded files in the Express application instance to keep out of the global namespace. 
+You get access to the autoloaded files in the Express application instance to keep out of the global namespace.
 This also allows access to the scripts via the request object. `req.app`
 
 A script at `controllers/user.js` becomes available as `app.controllers.user` or `req.app.controllers.user` in a request.
@@ -41,7 +41,7 @@ exports.index = function(req, res, next) {
 module.exports = function(app) {
 
   var site = app.controllers.site;
-  
+
   app.get('/',
     site.index
   );
@@ -137,7 +137,7 @@ load('controllers', {checkext:true, extlist:['.js','.myextension']}).into(app);
 
 ### Nested Folders
 
-If you had nested folders like the following example: 
+If you had nested folders like the following example:
 
 	models
 		humans
@@ -158,7 +158,7 @@ app.models.animals.cat
 
 ### Base directory
 
-Express-load load scripts based on relative directory, however you can use `cwd` option if you want to load based on the other directory. see [example](https://github.com/jarradseers/express-load/tree/master/examples/cwd). 
+Express-load load scripts based on relative directory, however you can use `cwd` option if you want to load based on the other directory. see [example](https://github.com/jarradseers/express-load/tree/master/examples/cwd).
 
 ### Getting the Express Application instance
 
@@ -194,27 +194,6 @@ The names of files and folders are used to create the namespace therefore rules 
 
 Please see the examples folder for working examples of _express-load_ in action.
 
-# License 
+# License
 
-(The MIT License)
-
-Copyright (c) 2012 Jarrad Seers &lt;jarrad@jarradseers.com&gt;
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+MIT © [João M.](https://twitter.com/joaom182)

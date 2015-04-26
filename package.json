@@ -1,35 +1,34 @@
 {
-  "name": "express-load",
-  "description": "Autoload modules into an Express application instance, config, models, routes, controllers etc...",
-  "version": "1.1.14",
-  "author": {
-    "name": "Jarrad Seers",
-    "email": "jarrad@jarradseers.com"
-  },
-  "contributors": [
-    {"name": "Jarrad Seers", "email": "jarrad@jarradseers.com"},
-    {"name": "Alex Koller", "email": "alex@webmolecule.co.za"},
-    {"name": "Fabien Franzen", "email": "info@atelierfabien.be"},
-    {"name": "Jean-Matthieu Barbier", "email": "jm.barbier+github@solidev.net"},
-    {"name": "perfectworks", "email": "perfectworks@gmail.com"},
-    {"name": "popomore", "email": "sakura9515@gmail.com"},
-    {"name": "vkadam", "email": "vishal.4kadam@gmail.com"}
+	"name": "express-app-loader",
+	"description": "Autoload modules into an Express application instance, config, models, routes, controllers etc...",
+	"version": "1.1.15",
+	"author": {
+		"name": "João M.",
+		"email": "joaom182@hotmail.com"
+	},
+	"contributors": [
+		{
+			"name": "João M.",
+			"email": "joaom182@hotmail.com"
+		}
   ],
-  "main": "index",
-  "keywords": [
+	"main": "index",
+	"keywords": [
     "express",
-    "express-load",
+    "express-app-loader",
     "mvc",
     "autoload",
     "auto-configure",
     "configuration"
   ],
-  "dependencies": {
-    "async": "0.2.9"
-  },
-  "devDependencies": {
-     "express": "3.x"
-  },
-  "engines": { "node": "*" },
-  "repository": "git://github.com/jarradseers/express-load"
+	"dependencies": {
+		"async": "0.2.9"
+	},
+	"devDependencies": {
+		"express": "3.x"
+	},
+	"engines": {
+		"node": "*"
+	},
+	"repository": "git://github.com/joaom182/express-app-loader"
 }
