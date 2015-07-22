@@ -1,5 +1,8 @@
 # Express Load
 
+## NOTE:
+The successor to this module is here: [consign](https://www.npmjs.com/package/consign) it's not express specific and is lighter in weight. Check it out :)
+
 The _express-load_ module provides the ability to load scripts into an Express instance from specified directories or files. 
 Make large express MVC applications easier to develop by allowing a logical file separation without having to require your scripts. 
 See the examples folder for information.
