@@ -1,7 +1,7 @@
 {
   "name": "express-load",
   "description": "Autoload modules into an Express application instance, config, models, routes, controllers etc...",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "author": {
     "name": "Jarrad Seers",
     "email": "jarrad@jarradseers.com"
